@@ -3,11 +3,6 @@
 import * as React from 'react'
 import './App.css'
 
-/**
- *
- * @type {React.FC}
- */
-
 const DOG_API_URL = 'https://dog.ceo/api/breeds/image/random'
 
 const fetchDog = async () => {
@@ -27,21 +22,31 @@ export const App = () => {
       const dog = await fetchDog()
       setDogUrl(dog.message)
     } catch (error) {
-      console.error(error)
       alert('犬の画像を取得できませんでした。')
     }
   }, [])
 
   return (
     <>
-      <header>
-        <h1>Dogアプリ</h1>
+      <header className="appHeader">
+        <h1 className="appTitle">Dogアプリ</h1>
       </header>
-      <p>犬の画像を表示するサイトです</p>
-      <img src={dogUrl} alt="犬" />
-      <div>
-        <button onClick={handleClick}>表示</button>
-      </div>
+      <main className="appMain">
+        <div className="container">
+          <div className="dogWrapper">
+            <p className="dogDescription">犬の画像を表示するサイトです</p>
+            <div className="dogImgWrapper">
+              <img src={dogUrl} alt="犬" className="dogImg" />
+            </div>
+          </div>
+          <div className="updateButtonWrapper">
+            <button onClick={handleClick} className="updateButton">
+              更新
+            </button>
+          </div>
+          <hr />
+        </div>
+      </main>
     </>
   )
 }
