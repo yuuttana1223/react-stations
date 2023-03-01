@@ -14,6 +14,7 @@ export const App = () => {
         <div className="container">
           <Description />
           <hr />
+          <DogListContainer />
         </div>
       </main>
     </>
