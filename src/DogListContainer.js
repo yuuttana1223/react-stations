@@ -1,10 +1,16 @@
-import React, { useEffect } from 'react'
+import React from 'react'
+import { BreedsSelect } from './BreedsSelect'
 import { fetchJson } from './Description'
 
 const DOG_LIST_URL = 'https://dog.ceo/api/breeds/list/all'
 
 export const DogListContainer = () => {
   const [breeds, setBreeds] = React.useState()
+  const [selectedBreed, setSelectedBreed] = React.useState()
+
+  const handleSelect = React.useCallback(e => {
+    setSelectedBreed(e.target.value)
+  }, [])
 
   React.useEffect(() => {
     const fetchBreeds = async () => {
@@ -18,5 +24,15 @@ export const DogListContainer = () => {
     }
     fetchBreeds()
   }, [])
+  return (
+    <div className="dogListGroup">
+      <div>Breeds List</div>
+      <BreedsSelect
+        breeds={breeds}
+        selectedBreed={selectedBreed}
+        onChange={handleSelect}
+      />
   return <div></div>
+    </div>
+  )
 }
