@@ -59,10 +59,31 @@
   cursor: pointer;
 }
 
-.dogListGroup {
+.selectGroup {
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 10px;
+  padding: 20px;
+}
+
+.showButton {
+  background-color: #3b82f6;
+  color: white;
+  border-radius: 4px;
+  border: none;
+  padding: 8px 40px;
+  cursor: pointer;
+}
+
+.dogSelect {
+  color: gray;
+  padding: 8px 300px 8px 8px;
+  border-radius: 4px;
+}
+
+.dogList {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 8px;
-  padding: 8px;
 }

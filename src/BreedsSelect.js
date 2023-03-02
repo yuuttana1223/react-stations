@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 export const BreedsSelect = ({ breeds, selectedBreed, onChange }) => {
   return (
-    <select value={selectedBreed} onChange={onChange}>
+    <select value={selectedBreed} onChange={onChange} className="dogSelect">
       {breeds?.map(breed => (
         <option value={breed} key={breed}>
           {breed}
